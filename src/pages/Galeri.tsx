@@ -11,7 +11,7 @@ import Layout from '@/components/Layout';
 
 const Galeri = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   const products = [
@@ -108,7 +108,7 @@ const Galeri = () => {
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          product.seller.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = !selectedCategory || product.category === selectedCategory;
+    const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -142,7 +142,7 @@ const Galeri = () => {
                 <SelectValue placeholder="Pilih Kategori" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Semua Kategori</SelectItem>
+                <SelectItem value="all">Semua Kategori</SelectItem>
                 <SelectItem value="Fashion">Fashion</SelectItem>
                 <SelectItem value="Makanan & Minuman">Makanan & Minuman</SelectItem>
                 <SelectItem value="Kerajinan">Kerajinan</SelectItem>
