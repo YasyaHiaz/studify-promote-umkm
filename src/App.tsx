@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import Galeri from "./pages/Galeri";
 import DetailProduk from "./pages/DetailProduk";
 import Dashboard from "./pages/Dashboard";
+import TentangKami from "./pages/TentangKami";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/galeri" element={<Galeri />} />
           <Route path="/produk/:id" element={<DetailProduk />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/tentang" element={<TentangKami />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
